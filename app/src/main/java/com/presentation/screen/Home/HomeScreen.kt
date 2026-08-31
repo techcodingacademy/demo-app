@@ -55,7 +55,7 @@ fun HomeScreen(
                 topBar = {
                     TopAppBar(
                         title = {
-                            Text("Dashboard",style = MaterialTheme.typography.titleMedium)
+                            Text("Dashboard", style = MaterialTheme.typography.titleMedium)
                         },
                         colors = TopAppBarDefaults.topAppBarColors(
                             containerColor = MaterialTheme.colorScheme.primary,
@@ -80,7 +80,12 @@ fun HomeScreen(
                                     contentDescription = "Home"
                                 )
                             },
-                            label = { Text(text = "Home",style = MaterialTheme.typography.bodySmall) }
+                            label = {
+                                Text(
+                                    text = "Home",
+                                    style = MaterialTheme.typography.bodySmall
+                                )
+                            }
                         )
                         NavigationBarItem(
                             selected = true,
@@ -94,7 +99,12 @@ fun HomeScreen(
                                     contentDescription = "Chat"
                                 )
                             },
-                            label = { Text(text = "Chat",style = MaterialTheme.typography.bodySmall) }
+                            label = {
+                                Text(
+                                    text = "Chat",
+                                    style = MaterialTheme.typography.bodySmall
+                                )
+                            }
                         )
                         NavigationBarItem(
                             selected = true,
@@ -109,7 +119,10 @@ fun HomeScreen(
                                 )
                             },
                             label = {
-                                Text(text = "Announcement",style = MaterialTheme.typography.bodySmall)
+                                Text(
+                                    text = "Announcement",
+                                    style = MaterialTheme.typography.bodySmall
+                                )
                             }
                         )
                         NavigationBarItem(
@@ -124,10 +137,12 @@ fun HomeScreen(
                                     contentDescription = "Live Help"
                                 )
                             },
-                            label = { Text(
-                                text = "Live Help",
-                                style = MaterialTheme.typography.bodySmall
-                            ) }
+                            label = {
+                                Text(
+                                    text = "Live Help",
+                                    style = MaterialTheme.typography.bodySmall
+                                )
+                            }
                         )
                     }
                 }
@@ -149,6 +164,7 @@ fun HomeScreen(
                 }
             }
         }
+
         is HomeUiState.Error -> {
             Text(text = uiState.message)
         }
