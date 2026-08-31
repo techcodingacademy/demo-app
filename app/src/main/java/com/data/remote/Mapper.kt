@@ -18,5 +18,4 @@ fun UserDTO.toDomain(): User {
         birthDate = birthDate,
         image = image
     )
-
 }
