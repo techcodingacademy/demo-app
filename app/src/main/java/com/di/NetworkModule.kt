@@ -1,8 +1,6 @@
 package com.di
 
 import com.data.remote.UserApImp
-import com.data.remote.UserRepositoryImp
-import com.domain.Repository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,7 +14,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 
 @Module
 @InstallIn(SingletonComponent::class)
-object AppModule {
+object NetworkModule {
     @Singleton
     @Provides
     //log of data
@@ -54,13 +52,6 @@ object AppModule {
     fun provideUserApImp(retrofit: Retrofit): UserApImp {
         return retrofit.create<UserApImp>()
     }
-
-    @Singleton
-    @Provides
-    fun provideRepository(userApImp: UserApImp): Repository {
-        return UserRepositoryImp(userApImp)
-    }
-
 
 }
 

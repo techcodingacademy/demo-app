@@ -5,9 +5,6 @@ import java.util.Collections.emptyList
 
 sealed class HomeUiState {
     data object Loading : HomeUiState()
-    data class Success(
-        val users: List<User> = emptyList()
-    ) : HomeUiState()
-
+    data class Success(val users: List<User> = emptyList()) : HomeUiState()
     data class Error(val message: String) : HomeUiState()
 }
