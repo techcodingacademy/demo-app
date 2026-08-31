@@ -7,7 +7,6 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import androidx.navigation.toRoute
 import com.presentation.screen.Home.HomeViewModel
 import com.presentation.navigation.route.AppNavRoute
 import com.presentation.screen.detail.DetailViewModel
@@ -34,12 +33,11 @@ fun AppNavigation() {
             )
         }
 
-        composable<AppNavRoute.DetailRoute> { backStackEntry ->
-            val route = backStackEntry.toRoute<AppNavRoute.DetailRoute>()
+        composable<AppNavRoute.DetailRoute> {
             val detailViewModel: DetailViewModel = hiltViewModel()
-            val detailState by detailViewModel.uiState.collectAsStateWithLifecycle()
+            val detailUiState by detailViewModel.uiState.collectAsStateWithLifecycle()
             DetailScreen(
-                detailUiState = detailState,
+                detailUiState = detailUiState,
                 onBackClick = {
                     navController.popBackStack()
                 }
