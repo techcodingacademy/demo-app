@@ -14,14 +14,11 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(
     private val getUsersUseCase: GetUsersUseCase
 ) : ViewModel() {
-
     private val _users = MutableStateFlow<HomeUiState>(HomeUiState.Loading)
     val users = _users.asStateFlow()
-
     init {
         getUsers()
     }
-
     fun getUsers() {
         viewModelScope.launch {
             try {

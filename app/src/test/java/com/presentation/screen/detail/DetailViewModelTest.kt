@@ -1,8 +1,6 @@
 package com.presentation.screen.detail
 
-import android.util.Log.println
 import org.junit.After
-import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
 import java.sql.DriverManager.println

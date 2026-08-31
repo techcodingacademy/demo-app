@@ -4,7 +4,6 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
-import com.data.remote.toDomain
 import com.domain.usecase.GetUserByIdUseCase
 import com.presentation.navigation.route.AppNavRoute
 import kotlinx.coroutines.flow.MutableStateFlow

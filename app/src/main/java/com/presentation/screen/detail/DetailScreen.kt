@@ -1,6 +1,5 @@
 package com.presentation.screen.detail
 
-import android.R.id.icon
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
