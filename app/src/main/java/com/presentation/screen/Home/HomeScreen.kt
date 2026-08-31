@@ -27,6 +27,8 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.pulltorefresh.PullToRefreshBox
+import androidx.compose.material3.pulltorefresh.PullToRefreshState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -40,7 +42,8 @@ import com.domain.User
 fun HomeScreen(
     //HomeScreen Received uiState and onUserClick lambda
     uiState: HomeUiState,
-    onUserClick: (User) -> Unit
+    onUserClick: (User) -> Unit,
+    onRefresh: () -> Unit
 ) {
     when (uiState) {
         is HomeUiState.Loading -> {
@@ -147,21 +150,27 @@ fun HomeScreen(
                     }
                 }
             ) { innerPadding ->
-                LazyColumn(
-                    modifier = Modifier.background(
-                        MaterialTheme.colorScheme.background
-                    ),
-                    contentPadding = innerPadding,
-                    verticalArrangement = Arrangement.spacedBy(8.dp)
+                PullToRefreshBox(
+                    isRefreshing = false,
+                    onRefresh = onRefresh
                 ) {
-                    items(uiState.users) { user ->
+                    LazyColumn(
+                        modifier = Modifier.background(
+                            MaterialTheme.colorScheme.background
+                        ),
+                        contentPadding = innerPadding,
+                        verticalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        items(uiState.users) { user ->
 
-                        ItemsContent(
-                            user = user,
-                            onUserClick = onUserClick
-                        )
+                            ItemsContent(
+                                user = user,
+                                onUserClick = onUserClick
+                            )
+                        }
                     }
                 }
+
             }
         }
 

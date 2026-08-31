@@ -29,6 +29,9 @@ fun AppNavigation() {
                     navController.navigate(
                         AppNavRoute.DetailRoute(userId = user.id)
                     )
+                },
+                onRefresh = {
+                    homeViewModel.getUsers()
                 }
             )
         }
