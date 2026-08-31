@@ -141,7 +141,7 @@ fun HomeScreen(
                 ) {
                     items(uiState.users) { user ->
 
-                        CardScreen(
+                        ItemsContent(
                             user = user,
                             onUserClick = onUserClick
                         )
@@ -156,7 +156,7 @@ fun HomeScreen(
 }
 
 @Composable
-fun CardScreen(
+fun ItemsContent(
     user: User,
     onUserClick: (User) -> Unit
 ) {
